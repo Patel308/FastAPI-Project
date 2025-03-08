@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from . import models
 from . database import engine 
-from . routers import blog,users
+from . routers import blog,users,authentication
 
 
 
@@ -11,5 +11,6 @@ models.Base.metadata.create_all(engine) #if we find any models lets create on th
 
 app.include_router(blog.router)
 app.include_router(users.router)
+app.include_router(authentication.router)
 
 
